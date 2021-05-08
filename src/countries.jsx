@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 export class Countries extends React.Component {
@@ -19,6 +20,7 @@ export class Countries extends React.Component {
             .then(() => {
                 //
             })
+            
     }
 
     textChanged(ev){
@@ -41,8 +43,10 @@ export class Countries extends React.Component {
                         <img src={c.flag} alt={`The flag of ${c.name}`} />
                         <div className="country-info">
                             <h2>{c.name}</h2>
+                            
                             <h3>{c.capital}</h3>
                             <h3>{pop}</h3>
+                            <Link to={c.alpha3Code}><div className="learn-more">Learn More</div></Link>
                         </div>
                     </div>
                 )

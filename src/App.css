@@ -4,8 +4,20 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 body {
   background-color: grey;
+}
+
+header {
+  font-size: xx-large;
+  font-weight: 700;
+  text-align: center;
+  margin: 1em;
 }
 
 .all-countries {
@@ -19,14 +31,26 @@ body {
   width: 250px;
   height: fit-content;
   min-height: 300px;
-  background-color: honeydew;
+  background-color: lightgray;
   margin: 1em;
+  display: flex;
+  flex-direction: column;
+}
+img {
+  width: 250px;
 }
 
 .country-info {
   padding: 0.4em;
 }
 
-img {
-  width: 250px;
+.learn-more {
+  margin-top: auto;
+}
+
+/* one country page */
+
+.large-flag {
+  width: 92vw;
+  margin:1em 4vw;
 }
