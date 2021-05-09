@@ -8,50 +8,32 @@ export class OneCountry extends React.Component {
         this.state = {
             country:[],
             languages:[],
+            currencies:[],
             population:'',
         }
     }
 
-    // componentDidMount(){
-    //     axios.get(this.props.match.params.id)
-    //     axios.get(`https://restcountries.eu/rest/v2/alpha/col`)
-    //         .then((res) => {
-    //             this.setState({country:res.data})
-    //         })
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    //         .then(() => {
-    //             //console.log(res.data)
-    //         })
-    //     //console.log(this.props.location)
-    // }
-
     componentDidMount(){
         axios.get(`https://restcountries.eu/rest/v2/alpha${window.location.pathname}`)
             .then(res => {
-                console.log(res.data);
-                // this.state.country.push(res.data);
                 this.setState({
                     country:res.data,
                     languages:res.data.languages.map(l => {
                         return l
                     }),
-                    population:res.data.population.toLocaleString()
+                    population:res.data.population.toLocaleString(),
+                    currencies:res.data.currencies.map(m => {
+                        return m
+                    })
                 })
             })
             .catch(err => console.log(err))
-            .then(res => console.log("in then",res))
     }
 
     render(){
-        // let infos = this.state.country.map(c => {
-        //     <div>
-        //         {c.name}
-        //     </div>
-        // })
         let c = this.state.country;
         let l = this.state.languages;
+        let m = this.state.currencies;
         let ppl = this.state.population;
         console.log(c);
         console.log(l);
@@ -62,16 +44,34 @@ export class OneCountry extends React.Component {
                 <div key={l.nativeName}>{l.name}</div>
             )
         })
+
+        let monies = m.map(m => {
+            return (
+                <div key={m.name}>{m.name}</div>
+            )
+        })
         
         return (
             <div key={c.alpha3Code}>
                 <img className="large-flag" src={c.flag} alt={`The flag of ${c.name}`} />
-                <div>
+                <div className="one-country-info">
                     <h1>{c.name}</h1>
-                    <h2>{c.capital}</h2>
-                    <h3>{ppl}</h3>
-                    <h3>{langs}</h3>
+                    <table className="one-country-table">
+                        <tr>
+                            <th>Capital city</th>
+                            <th>Population</th> 
+                            <th>Languages</th>
+                            <th>Currencies</th>
+                        </tr>
+                        <tr>
+                            <td>{c.capital}</td>
+                            <td>{ppl}</td>
+                            <td>{langs}</td>
+                            <td>{monies}</td>
+                        </tr>
+                    </table>
                 </div>
+                
             </div>
         )
     }
