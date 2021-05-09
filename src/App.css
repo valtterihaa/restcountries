@@ -17,13 +17,35 @@ header {
   font-size: xx-large;
   font-weight: 700;
   text-align: center;
-  padding: 1em 0 1em 0;
-  background-color: rgb(15, 133, 15);
+  background-color: black;
+  color: white;
+  padding: 0.5em 0 0.5em 0;
+  border-bottom: 2px solid black;
+  box-shadow: black 0 0 10px;
+  
 }
 
 .all-countries {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.country-filters {
+  /* margin: 1em; */
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: grey;
+  border-bottom: 1px solid black;
+  box-shadow: black 0 0 10px;
+  z-index: 1;
+}
+
+.hide {
+  display: none;
 }
 
 /* country card */
@@ -67,7 +89,16 @@ img {
   background-color: rgb(156, 156, 156);
 }
 
+.learn-more:hover {
+  background-color: rgb(165, 165, 165);
+}
+
 /* one country page */
+
+.one-country-page {
+  margin: auto;
+  align-items: center;
+}
 
 .large-flag {
   width: 92vw;
@@ -81,6 +112,8 @@ img {
 
 .one-country-table {
   margin-top: 0.5em;
+  width: 100%;
+  max-width: 600px;
 }
 
 table, th, td {

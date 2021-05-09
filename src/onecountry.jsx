@@ -52,7 +52,8 @@ export class OneCountry extends React.Component {
         })
         
         return (
-            <div key={c.alpha3Code}>
+            <div className="one-country-page" key={c.alpha3Code}>
+                
                 <img className="large-flag" src={c.flag} alt={`The flag of ${c.name}`} />
                 <div className="one-country-info">
                     <h1>{c.name}</h1>

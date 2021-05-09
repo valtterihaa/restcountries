@@ -75,13 +75,13 @@ export class Countries extends React.Component {
         // Main return
         return (
             <div>
-                <div>
+                <div className="country-filters">
                     <div>
-                        <label htmlFor="filter">Filter by name</label>
+                        <label htmlFor="filter" className="hide">Filter by name</label>
                         <input id="filter" className="country-filter" value={this.state.filter} onChange={ev => this.textChanged(ev)} placeholder="search by name" />
                     </div>
                     <div>
-                        <label htmlFor="region">Filter by region</label>
+                        {/* <label htmlFor="region">Filter by region</label>
                         <select name="region" id="region" value={this.state.region} onChange={ev => this.textChanged(ev)} >
                             <option value="">Show all</option>
                             <option value="africa">Africa</option>
@@ -89,16 +89,13 @@ export class Countries extends React.Component {
                             <option value="asia">Asia</option>
                             <option value="europe">Europe</option>
                             <option value="oceania">Oceania</option>
-                        </select>
+                        </select> */}
                         <select name="subr" id="subr" value={this.state.subr} onChange={ev => this.textChanged(ev)} >
-                            <option value="">Show all</option>
+                            <option value="">Filter by subregion</option>
                             {srfilter}
                         </select>
                     </div>
-                    <div>
-                        <label htmlFor="subreg">Filter by subregion</label>
-                        
-                    </div>
+                    
                     
 
                 </div>
