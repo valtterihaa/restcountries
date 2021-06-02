@@ -15,9 +15,15 @@ import {Link} from 'react-router-dom';
 // }
 
 function Header(){
-    return <Link to="/"><header>
-        <h1>RestCountries</h1>
-        </header></Link>
+    return (
+    <header>
+        <Link to="/">
+            <h1>RestCountries</h1>
+        </Link>
+        <Link to="/usr/info">
+            <p className="info">info</p>
+        </Link>
+    </header>)
 }
 
 export default Header

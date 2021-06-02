@@ -6,6 +6,8 @@ import {Countries}  from './countries';
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
 import { OneCountry } from './onecountry';
 import Header from './header'
+import Footer from './footer';
+import Info from './info';
 
 ReactDOM.render(
     <Router>
@@ -14,11 +16,14 @@ ReactDOM.render(
         <Route exact path="/" >
           <Countries/>
         </Route>
-        <Route path="/:alpha3Code">
+        <Route exact path="/:alpha3Code">
           <OneCountry/>
         </Route>
+        <Route exact path="/usr/info">
+          <Info />
+        </Route>
       </Switch>
-      
+      <Footer />
     </Router>
     ,
   document.getElementById('root')
