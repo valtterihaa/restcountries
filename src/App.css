@@ -1,3 +1,8 @@
+:root {
+  --main-color: rgb(71, 8, 63);
+  --action-color: rgb(43, 151, 79);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,21 +14,31 @@ a {
   color: black;
 }
 
+html, #root {
+  height: 100%;
+}
+
 body {
   background-color: whitesmoke;
   height: 100%;
   min-height: 100%;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   font-size: xx-large;
   font-weight: 700;
   text-align: center;
-  background-color: rgb(15, 36, 155);
+  background-color: var(--main-color);
   padding: 0.5em 0 0.5em 0;  
   z-index: 2;
   position: relative;
-  /* border-bottom: 2px solid black; */
+  box-shadow: 0px 20px 15px 3px rgba(0, 0, 0, 0.666);
+
 }
 
 header h1 {
@@ -37,24 +52,33 @@ header .info {
   line-height: 3em;
 }
 
+footer {
+  text-align: center;
+  margin-top: auto;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: var(--main-color);
+  color: whitesmoke;
+  line-height: 1.5em;
+}
+
 .all-countries {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin: 2em auto auto auto;
 }
 
 .country-filters {
-  /* margin: 1em; */
   padding: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: rgb(15, 36, 155);
-  /* border-bottom: 1px solid black; */
-  box-shadow: black 0 4px 10px;
-  z-index: 1;
+  background-color: var(--main-color);
+  box-shadow: 0px 20px 15px 3px rgba(0, 0, 0, 0.666);
+  z-index: 3;
 }
 
 .country-filter {
@@ -68,24 +92,13 @@ header .info {
   display: none;
 }
 
-footer {
-  text-align: center;
-  position: sticky;
-  width: 100%;
-  bottom: -1.5em;
-  line-height: 1.5em;
-  background-color: rgb(15, 36, 155);
-  color: antiquewhite;
-  /* border-top: 1px solid black; */
-}
 
-/* country card */
+
 
 .country-card {
   width: 250px;
   height: fit-content;
   min-height: 300px;
-  /* background-color: rgb(240, 240, 240); */
   margin: 1em;
   display: flex;
   flex-direction: column;
@@ -112,27 +125,22 @@ img {
 .learn-more {
   margin: auto;
   line-height: 2em;
-  /* border: solid black 2px; */
   text-align: center;
   bottom: 0.5em;
   width: 94%;
   border-radius: 10px;
   position: absolute;
-  background-color: rgb(36, 173, 82);
-  /* color: antiquewhite; */
+  background-color: var(--action-color);
 }
 
 .learn-more:hover {
   background-color: rgba(36, 173, 82, 0.666);
-
-
 }
 
-/* one country page */
 
 .one-country-page {
   margin: auto;
-  min-height: 82.7vh;
+  /* min-height: 82.7vh; */
   align-items: center;
 }
 
@@ -140,7 +148,6 @@ img {
   width: 92vw;
   max-width: 600px;
   margin:4em 4vw 2em 4vw;
-  /* box-shadow: rgb(131, 131, 131) 0 0 10px; */
   filter: drop-shadow(0 0 10px rgb(131,131,131))
 }
 
@@ -162,4 +169,17 @@ table, th, td {
 
 th, td {
   background-color: whitesmoke;
+}
+
+.my-info {
+  width: 60vw;
+  margin: 4em auto;
+}
+
+.my-info-list {
+  margin: 1em 2em;
+}
+
+.my-info-list ul {
+  margin: 0.25em 1em;
 }
