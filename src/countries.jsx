@@ -12,7 +12,9 @@ export class Countries extends React.Component {
             subr:'',
             subreg:[],
             countries:[],
-            sortOrder:'name'}
+            sortOrder:'name',
+            sortByLow:true,
+        }
     }
 
     componentDidMount(){
@@ -31,13 +33,21 @@ export class Countries extends React.Component {
     }
 
     textChanged(ev){
-        // console.log(ev.target.value);
-        this.setState({[ev.target.id]:ev.target.value});
+        console.log(ev.target.value);
+        if (ev.target.value === 'population higher') {
+            this.setState({sortByLow:false})
+            this.setState({sortOrder:'population'})
+        } else {
+            this.setState({sortByLow:true});
+            this.setState({[ev.target.id]:ev.target.value});
+        }
+        
+        // if (ev.target.id === 'higher'){this.setState({sortByLow:false})}
     }
 
     render(){
         
-        let {filter,sortOrder,subr} = this.state;
+        let {filter,sortOrder,subr,sortByLow} = this.state;
         let subs = Array.from(new Set(this.state.subreg))
         let subregions = subs.filter(Boolean);
         let srfilter = subregions.map(sr => {
@@ -50,7 +60,14 @@ export class Countries extends React.Component {
             c.subregion.toLowerCase().includes(subr.toLowerCase())
         );
         if (sortOrder === 'name' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
-        if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
+        if (sortOrder === 'population' && sortByLow===true) {
+            // this.setState({sortOrder:'population'})
+            filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
+        }
+        if (sortOrder === 'population' && sortByLow===false) {
+            // this.setState({sortOrder:'population'})
+            filtered.sort((a,b) => b[sortOrder]-a[sortOrder])
+        }
             
         let stuffs = filtered.map(c => 
             {
@@ -84,7 +101,8 @@ export class Countries extends React.Component {
                     <div>
                         <select name="sortOrder" id="sortOrder" className="country-filter" value={this.state.sortOrder} onChange={ev => this.textChanged(ev)}>
                             <option value="name">Name</option>
-                            <option value="population">Population</option>
+                            <option value="population">Population (lowest first)</option>
+                            <option value="population higher">Population (highest first)</option>
                             <option value="region">Region</option>
                         </select>
                     </div>
