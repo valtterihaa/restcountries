@@ -92,9 +92,10 @@ footer {
 }
 
 
+/* start all country listings */
 
 
-.country-card {
+/* .country-card {
   width: 250px;
   height: fit-content;
   min-height: 300px;
@@ -134,8 +135,10 @@ img {
 
 .learn-more:hover {
   background-color: rgba(36, 173, 82, 0.666);
-}
+} */
 
+/* end all country listings */
+/* start single country */
 
 .one-country-page {
   margin: auto;
@@ -180,4 +183,20 @@ th, td {
 
 .my-info-list ul {
   margin: 0.25em 1em;
+}
+
+/* just first draft based on iPhone 8+ width */
+@media screen and (max-width: 415px) {
+  img {
+    width: 100px;
+  }
+
+  .country-card {
+    width: 100vw;
+    display: flex;
+  }
+
+  /* .country-info {
+    display: flex;
+  } */
 }
