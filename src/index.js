@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import './App.css';
 import {Countries}  from './countries';
-import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import { OneCountry } from './onecountry';
 import Header from './header'
 import Footer from './footer';

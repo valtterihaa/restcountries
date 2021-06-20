@@ -59,13 +59,21 @@ export class Countries extends React.Component {
                 return (
                     <div key={c.alpha3Code} className="country-card">
                         <img src={c.flag} alt={`The flag of ${c.name}`} />
-                        <div className="country-info">
-                            <h2>{c.name}</h2>
-                            
-                            <h3>{c.region}</h3>
-                            <h3>{pop}</h3>
-                            <Link to={c.alpha3Code}><div className="learn-more">Learn More</div></Link>
+                        <div className="country-info-wrapper">
+                            <div className="country-info">
+                                <h2>{c.name}</h2>
+                                
+                                <h3>{c.region}</h3>
+                                <h3>{pop}</h3>
+                            </div>
+                            <div>
+                                
+                                <Link to={c.alpha3Code}><div className="learn-more">Learn More</div></Link>
+                            </div>
                         </div>
+                        
+                            
+                        
                     </div>
                 )
             }
@@ -79,7 +87,7 @@ export class Countries extends React.Component {
                     
                     <div>
                         <select name="subr" id="subr" className="country-filter" value={this.state.subr} onChange={ev => this.textChanged(ev)} >
-                            <option value="">Filter by subregion</option>
+                            <option value="">Show all subregions</option>
                             {srfilter}
                         </select>
                     </div>
