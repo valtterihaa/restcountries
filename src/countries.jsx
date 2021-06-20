@@ -31,13 +31,13 @@ export class Countries extends React.Component {
     }
 
     textChanged(ev){
-        console.log(ev.target.id);
+        // console.log(ev.target.value);
         this.setState({[ev.target.id]:ev.target.value});
     }
 
     render(){
         
-        let {filter,sortOrder,region,subr} = this.state;
+        let {filter,sortOrder,subr} = this.state;
         let subs = Array.from(new Set(this.state.subreg))
         let subregions = subs.filter(Boolean);
         let srfilter = subregions.map(sr => {
@@ -47,11 +47,11 @@ export class Countries extends React.Component {
             c => 
             c.name.toLowerCase().includes(filter.toLowerCase())
             &&
-            c.region.toLowerCase().includes(region.toLowerCase())
-            &&
             c.subregion.toLowerCase().includes(subr.toLowerCase())
         );
-        filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
+        if (sortOrder === 'name' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
+        if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
+            
         let stuffs = filtered.map(c => 
             {
                 let pop = c.population.toLocaleString();
@@ -66,7 +66,7 @@ export class Countries extends React.Component {
                                 <h3>{c.region}</h3>
                                 <h3>{pop}</h3>
                             </div>
-                            <div>
+                            <div className="learn-more-wrapper">
                                 
                                 <Link to={c.alpha3Code}><div className="learn-more">Learn More</div></Link>
                             </div>
@@ -84,10 +84,16 @@ export class Countries extends React.Component {
         return (
             <div>
                 <div className="country-filters">
-                    
+                    <div>
+                        <select name="sortOrder" id="sortOrder" className="country-filter" value={this.state.sortOrder} onChange={ev => this.textChanged(ev)}>
+                            <option value="name">Name</option>
+                            <option value="population">Population</option>
+                            <option value="region">Region</option>
+                        </select>
+                    </div>
                     <div>
                         <select name="subr" id="subr" className="country-filter" value={this.state.subr} onChange={ev => this.textChanged(ev)} >
-                            <option value="">Show all subregions</option>
+                            <option value="">All subregions</option>
                             {srfilter}
                         </select>
                     </div>

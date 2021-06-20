@@ -86,7 +86,7 @@ footer {
 .country-filter {
   line-height: 2em;
   border-radius: 8px;
-  width: 150px;
+  width: 120px;
   padding-left: 4px;
 }
 
@@ -95,52 +95,7 @@ footer {
 }
 
 
-/* start all country listings */
 
-
- /* .country-card {
-  width: 250px;
-  height: fit-content;
-  min-height: 300px;
-  margin: 1em;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  border-radius: 12px;
-  box-shadow: rgb(131, 131, 131) 0 0 10px;
-  transition: all 120ms ease-out 40ms;
-}
-
-.country-card:hover {
-  transform: scale(1.05);
-  box-shadow: black 1 1 12px;
-}
-
-img {
-  width: 250px;
-}
-
-.country-info {
-  padding: 3%;
-  margin-bottom: 3em;
-}
-
-.learn-more {
-  margin: auto;
-  line-height: 2em;
-  text-align: center;
-  bottom: 0.5em;
-  width: 94%;
-  border-radius: 10px;
-  position: absolute;
-  background-color: var(--action-color);
-}
-
-.learn-more:hover {
-  background-color: rgba(36, 173, 82, 0.666);
-} */
-
-/* end all country listings */
 /* start single country */
 
 .one-country-page {
@@ -188,48 +143,123 @@ th, td {
   margin: 0.25em 1em;
 }
 
-/* just first draft based on iPhone 8+ width */
-@media screen and (max-width: 415px) {
+/* default styling is for mobile */
 
-  body {
-    background-color: whitesmoke;
+body {
+  background-color: whitesmoke;
 
+}
+
+img {
+  width: 25vw;
+  padding: 2px;
+}
+
+.country-card {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.5em;
+  box-shadow: black 0px 0px 15px 3px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+
+.country-info-wrapper {
+  width: 75vw;
+  margin: 0.5em auto;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.learn-more-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+}
+
+.learn-more {
+  background-color: var(--action-color);
+  height: 100%;
+  line-height: 100%;
+  width: 80px;
+  padding: 1em;
+  text-align: center;
+  margin: auto;
+}
+
+/* start all country listings */
+
+@media screen and (min-width: 415px) {
+  .country-card {
+    all: initial;
+    width: 250px;
+    height: fit-content;
+    min-height: 250px;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 0 0 12px 12px;
+    box-shadow: rgb(131, 131, 131) 0 0 10px;
+    transition: all 120ms ease-out 40ms;
+  }
+  
+  .country-card:hover {
+    transform: scale(1.05);
+    box-shadow: black 1 1 12px;
   }
   
   img {
-    width: 25vw;
-    padding: 2px;
+    all: initial;
+    width: 250px;
   }
-
-  .country-card {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 0.5em;
-    box-shadow: black 0px 0px 15px 3px;
-  }
-
+  
   .country-info {
+    all: initial;
+    padding: 0.5em;
+    /* background-color: khaki; */
+    width: 100%;
+    margin: auto;
+  }
+  
+  .country-info-wrapper {
+    all: initial;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    font-size: 14px;
-    text-overflow: ellipsis;
-  }
-
-  .country-info-wrapper {
-    width: 75vw;
-    padding: 2px;
-    display: flex;
     justify-content: space-between;
+    align-content: space-between;
+    width: 100%;
+    padding: 0 0 0 0;
+    justify-content: initial;
   }
 
   .learn-more {
-    background-color: var(--action-color);
-    height: 100%;
-    line-height: 100%;
-    width: 80px;
-    padding: 1em;
-    text-align: center;
+    all: initial;
+    display: block;
     margin: auto;
+    line-height: 3em;
+    font-size: larger;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    background-color: var(--action-color);
+  }
+  
+  .learn-more:hover {
+    background-color: rgba(36, 173, 82, 0.666);
   }
 }
+
+
+
+/* end all country listings */
