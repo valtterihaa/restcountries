@@ -53,11 +53,11 @@ export class OneCountry extends React.Component {
         
         return (
             <div className="one-country-page" key={c.alpha3Code}>
-                
+                <h1>{c.name}</h1>
                 <img className="large-flag" src={c.flag} alt={`The flag of ${c.name}`} />
                 <div className="one-country-info">
-                    <h1>{c.name}</h1>
-                    <table className="one-country-table">
+                    
+                    {/* <table className="one-country-table">
                         <tr>
                             <th>Capital city</th>
                             <th>Population</th> 
@@ -70,7 +70,23 @@ export class OneCountry extends React.Component {
                             <td>{langs}</td>
                             <td>{monies}</td>
                         </tr>
-                    </table>
+                    </table> */}
+                    <div className="one-country-info-snippet">
+                        <h3>Capital city</h3>
+                        <p>{c.capital}</p>
+                    </div>
+                    <div className="one-country-info-snippet">
+                        <h3>Population</h3>
+                        <p>{ppl}</p>
+                    </div>
+                    <div className="one-country-info-snippet">
+                        <h3>Languages</h3>
+                        <p>{langs}</p>
+                    </div>
+                    <div className="one-country-info-snippet">
+                        <h3>Currencies</h3>
+                        <p>{monies}</p>
+                    </div>
                 </div>
                 
             </div>

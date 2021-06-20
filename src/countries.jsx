@@ -62,18 +62,15 @@ export class Countries extends React.Component {
                         <div className="country-info-wrapper">
                             <div className="country-info">
                                 <h2>{c.name}</h2>
-                                
                                 <h3>{c.region}</h3>
                                 <h3>{pop}</h3>
                             </div>
                             <div className="learn-more-wrapper">
-                                
-                                <Link to={c.alpha3Code}><div className="learn-more">Learn More</div></Link>
+                                <Link to={c.alpha3Code}>
+                                    <div className="learn-more">Learn More</div>
+                                </Link>
                             </div>
                         </div>
-                        
-                            
-                        
                     </div>
                 )
             }
@@ -93,7 +90,7 @@ export class Countries extends React.Component {
                     </div>
                     <div>
                         <select name="subr" id="subr" className="country-filter" value={this.state.subr} onChange={ev => this.textChanged(ev)} >
-                            <option value="">All subregions</option>
+                            <option value="">Subregion</option>
                             {srfilter}
                         </select>
                     </div>

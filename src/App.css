@@ -34,9 +34,9 @@ body {
 header {
   font-size: xx-large;
   font-weight: 700;
-  text-align: center;
+  /* text-align: center; */
   background-color: var(--main-color);
-  padding: 0.5em 0 0.5em 0;  
+  padding: 0.5em;  
   z-index: 2;
   position: relative;
   box-shadow: 0px 20px 15px 3px rgba(0, 0, 0, 0.666);
@@ -45,12 +45,12 @@ header {
 
 header h1 {
   color: whitesmoke;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 header .info {
   position: absolute;
-  top: 0;
+  top: 0.2em;
   right: 10px;
   color: rgb(46, 138, 138);
 }
@@ -72,7 +72,7 @@ footer {
 }
 
 .country-filters {
-  padding: 1em;
+  padding: 0.69em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,10 +84,12 @@ footer {
 }
 
 .country-filter {
+  font-size: 16px;
+  height: 2em;
   line-height: 2em;
   border-radius: 8px;
-  width: 120px;
-  padding-left: 4px;
+  width: 105px;
+  /* padding-left: 4px; */
 }
 
 .hide {
@@ -99,40 +101,29 @@ footer {
 /* start single country */
 
 .one-country-page {
-  margin: auto;
+  margin: 1em auto;
   align-items: center;
 }
 
 .large-flag {
-  width: 92vw;
-  max-width: 600px;
-  margin:4em 4vw 2em 4vw;
+  width: 90vw;
+  /* max-width: 600px; */
+  /* margin:4em 4vw 2em 4vw; */
   filter: drop-shadow(0 0 10px rgb(131,131,131))
 }
 
 .one-country-info {
-  margin: auto 4vw;
+  margin: auto 0.25em;
 }
 
-.one-country-table {
-  margin-top: 0.5em;
-  width: 100%;
-  max-width: 600px;
-}
-
-table, th, td {
-  border: 2px solid black;
-  border-collapse: collapse;
-  padding: 4px;
-}
-
-th, td {
-  background-color: whitesmoke;
+.one-country-page h1 {
+  text-align: center;
+  margin: 0.25em;
 }
 
 .my-info {
-  width: 60vw;
-  margin: 4em auto;
+  width: 80vw;
+  margin: 2em auto;
 }
 
 .my-info-list {
@@ -151,13 +142,14 @@ body {
 }
 
 img {
-  width: 25vw;
-  padding: 2px;
+  width: 30vw;
+  padding: 5px;
+  filter: drop-shadow(0 0 10px rgb(131,131,131))
+
 }
 
 .country-card {
   display: flex;
-  justify-content: flex-start;
   margin-bottom: 0.5em;
   box-shadow: black 0px 0px 15px 3px;
 }
@@ -171,7 +163,7 @@ img {
 }
 
 .country-info-wrapper {
-  width: 75vw;
+  width: 70vw;
   margin: 0.5em auto;
   padding: 2px;
   display: flex;
