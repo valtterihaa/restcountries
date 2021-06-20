@@ -21,7 +21,7 @@ function Header(){
             <h1>RestCountries</h1>
         </Link>
         <Link to="/usr/info">
-            <p className="info">info</p>
+            <p className="info">ⓘ</p>
         </Link>
     </header>)
 }

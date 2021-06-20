@@ -9,7 +9,7 @@ function Info(){
             <p>Now, I am not going to name this company, but this is the list of requirements they had in the assignment.</p>
             <div className="my-info-list">
                 <ol>
-                    <li>Display all countries in a list. 
+                    <li>Display all countries in a list, where the following information is shown: 
                         <ul>
                             <li>Flag</li>
                             <li>Name</li>
@@ -17,7 +17,7 @@ function Info(){
                             <li>Region</li>
                         </ul>
                     </li>
-                    <li>Additionally, user should be able
+                    <li>Additionally, the user should be able to:
                         <ul>
                             <li>Filter countries by name</li>
                             <li>Filter countries by subregion</li>
