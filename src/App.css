@@ -88,8 +88,8 @@ footer {
   height: 2em;
   line-height: 2em;
   border-radius: 8px;
-  width: 105px;
-  /* padding-left: 4px; */
+  width: 30vw;
+  padding-left: 4px;
 }
 
 .hide {
@@ -165,7 +165,7 @@ img {
 .country-info-wrapper {
   width: 70vw;
   margin: 0.5em auto;
-  padding: 2px;
+  padding: 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -179,6 +179,7 @@ img {
 
 .learn-more {
   background-color: var(--action-color);
+  border-radius: 5px;
   height: 100%;
   line-height: 100%;
   width: 80px;
