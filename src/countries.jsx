@@ -96,7 +96,7 @@ export class Countries extends React.Component {
 
         // Main return
         return (
-            <div>
+            <main>
                 <div className="country-filters">
                     <div>
                         <select name="sortOrder" id="sortOrder" className="country-filter" value={this.state.sortOrder} onChange={ev => this.textChanged(ev)}>
@@ -122,7 +122,7 @@ export class Countries extends React.Component {
                 <div className="all-countries">
                     {stuffs}
                 </div>
-            </div>
+            </main>
         )
     }
 }

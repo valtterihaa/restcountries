@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
 import {Countries}  from './countries';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { OneCountry } from './onecountry';
 import Header from './header'
 import Footer from './footer';
@@ -16,10 +16,10 @@ ReactDOM.render(
         <Route exact path="/" >
           <Countries/>
         </Route>
-        <Route exact path="/:alpha3Code">
+        <Route path="/:alpha3Code">
           <OneCountry/>
         </Route>
-        <Route exact path="/usr/info">
+        <Route path="/usr/info">
           <Info />
         </Route>
       </Switch>
