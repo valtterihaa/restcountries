@@ -13,15 +13,17 @@ export class OneCountry extends React.Component {
             population:'',
             topLevelDomain: [],
             neighbors:[],
-            // neighborCode:[],
-            // neighborFlag:[],
+            countryCodeFromURL:'',
         }
     }
 
     componentDidMount(){
-        axios.get(`https://restcountries.eu/rest/v2/alpha${window.location.pathname}`)
+        this.setState({...this.state,countryCodeFromURL:window.location.pathname})
+        let requestURL = `https://restcountries.eu/rest/v2/alpha${window.location.pathname}`
+        console.log(requestURL)
+        console.log(this.state.countryCodeFromURL, window.location.pathname)
+        axios.get(requestURL)
             .then(res => {
-                console.log(res.data)
                 this.setState({
                     country:res.data,
                     languages:res.data.languages.map(l => l),
@@ -31,6 +33,8 @@ export class OneCountry extends React.Component {
                     topLevelDomain:res.data.topLevelDomain.map(tld => tld),
                     neighbors:res.data.borders.map(borders => borders)
                 })
+                console.log(res.data)
+
             })
             .catch(err => console.log(err))
     }
@@ -56,9 +60,14 @@ export class OneCountry extends React.Component {
                 </Link>
             </div>
         )
+
+        const showInfo = () => {
+            console.log(this.state.countryCodeFromURL)
+        }
         
         return (
             <main>
+                <button onClick={showInfo}>Click me pls</button>
             <section className="one-country-page" key={c.alpha3Code}>
                 <h1>{c.name}</h1>
                 <img className="large-flag" src={c.flag} alt={`The flag of ${c.name}`} />

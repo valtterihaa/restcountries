@@ -8,6 +8,7 @@ import { OneCountry } from './onecountry';
 import Header from './header'
 import Footer from './footer';
 import Info from './info';
+import { OneCountryFun } from './oneCountryFun';
 
 ReactDOM.render(
     <Router>
@@ -16,10 +17,10 @@ ReactDOM.render(
         <Route exact path="/" >
           <Countries/>
         </Route>
-        <Route path="/:alpha3Code">
-          <OneCountry/>
+        <Route exact path="/:alpha3Code">
+          <OneCountryFun/>
         </Route>
-        <Route path="/usr/info">
+        <Route exact path="/usr/info">
           <Info />
         </Route>
       </Switch>

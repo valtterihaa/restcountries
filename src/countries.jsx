@@ -72,7 +72,6 @@ export class Countries extends React.Component {
         let stuffs = filtered.map(c => 
             {
                 let pop = c.population.toLocaleString();
-                // country card return
                 return (
                     <div key={c.alpha3Code} className="country-card">
                         <img src={c.flag} alt={`The flag of ${c.name}`} />
