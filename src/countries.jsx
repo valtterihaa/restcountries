@@ -41,8 +41,6 @@ export class Countries extends React.Component {
             this.setState({sortByLow:true});
             this.setState({[ev.target.id]:ev.target.value});
         }
-        
-        // if (ev.target.id === 'higher'){this.setState({sortByLow:false})}
     }
 
     render(){
@@ -61,15 +59,13 @@ export class Countries extends React.Component {
         );
         if (sortOrder === 'name' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
         if (sortOrder === 'population' && sortByLow===true) {
-            // this.setState({sortOrder:'population'})
             filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
         }
         if (sortOrder === 'population' && sortByLow===false) {
-            // this.setState({sortOrder:'population'})
             filtered.sort((a,b) => b[sortOrder]-a[sortOrder])
         }
             
-        let stuffs = filtered.map(c => 
+        let countryInfos = filtered.map(c => 
             {
                 let pop = c.population.toLocaleString();
                 return (
@@ -119,7 +115,7 @@ export class Countries extends React.Component {
 
                 </div>
                 <div className="all-countries">
-                    {stuffs}
+                    {countryInfos}
                 </div>
             </main>
         )
