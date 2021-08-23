@@ -2,11 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-export const CountryFun = () => {
+export const AllCountries = () => {
     const [allData,setAllData] = useState([])
     const [subRegions, setSubRegions] = useState([])
     const [sortOrder, setSortOrder] = useState('name')
-    const [sortByLow, setSortByLow] = useState(true)
     const [filter, setFilter] = useState('')
     const [subr, setSubr] = useState('')
 
@@ -14,56 +13,28 @@ export const CountryFun = () => {
         axios.get('https://restcountries.eu/rest/v2/all')
             .then(res => {
                 setAllData(res.data)
-                setSubRegions(res.data.map(subregion => {
-                    return subregion.subregion
+                setSubRegions(res.data.map(data => {
+                    return data.subregion
                 }))
             })
             .catch(err => {console.log(err)})
     },[])
 
-    const subRegionChanged = ev => {
-        setSubr(ev.target.value)
-    }
-
-    const sortOrderChanged = ev => {
-        if (ev.target.value === 'population') {
-            setSortByLow(true)
-            setSortOrder('population')
-        }
-        if (ev.target.value === 'population-higher') {
-            setSortByLow(false)
-            setSortOrder('population-higher')
-            console.log(sortOrder,sortByLow,filter,subr)
-        }
-        if (ev.target.value === 'name') setSortOrder('name')
-        if (ev.target.value === 'region') setSortOrder('region')
-    }
-
-    const textChanged = ev => {
-        setSortByLow(true)
-        setFilter(ev.target.value)
-    }
+    const subRegionChanged = ev => setSubr(ev.target.value)
+    const sortOrderChanged = ev => setSortOrder(ev.target.value)
+    const textChanged = ev => setFilter(ev.target.value)
 
     let subs = Array.from(new Set(subRegions))
     let subregions = subs.filter(Boolean);
-    let srfilter = subregions.map(sr => {
-        return <option key={sr}>{sr}</option>
-    })
-    
-    let filtered = allData.filter(
-        c => 
+    let srfilter = subregions.map(sr => <option key={sr}>{sr}</option>)
+    let filtered = allData.filter(c =>
         c.name.toLowerCase().includes(filter.toLowerCase())
         &&
         c.subregion.toLowerCase().includes(subr.toLowerCase())
     )
-    console.log(filtered)
     if (sortOrder === 'name' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
-    if (sortOrder === 'population' && sortByLow===true) {
-        filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
-    }
-    if (sortOrder === 'population-higher') {
-        filtered.sort((a,b) => b[sortOrder]-a[sortOrder])
-    }
+    if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
+    if (sortOrder === 'population-higher') filtered.sort((a,b) => b['population']-a['population'])
 
     let countryInfos = filtered.map(c => 
         {
@@ -102,7 +73,7 @@ export const CountryFun = () => {
                 </div>
                 <div>
                     <select name="subr" id="subr" className="country-filter" value={subr} onChange={ev => subRegionChanged(ev)} >
-                        <option value="">Subregion</option>
+                        <option value="">Show all subregions</option>
                         {srfilter}
                     </select>
                 </div>

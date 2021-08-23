@@ -9,7 +9,8 @@
   padding: 0;
 }
 
-a {
+main a,
+header a {
   text-decoration: none;
   color: black;
 }
@@ -168,12 +169,13 @@ footer {
   margin: 2em auto;
 }
 
-.my-info-list {
-  margin: 1em 2em;
-}
+/* .my-info a {
+  text-decoration: underline;
+  color: blue;
+} */
 
-.my-info-list ul {
-  margin: 0.25em 1em;
+.my-info p {
+  margin-bottom: 1em;
 }
 
 .neighbor-info {
