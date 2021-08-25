@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+Created with create-react-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Production build is included in the "restcountries" folder.
 
-## Available Scripts
+Live site is viewable @ https://geronimo.okol.org/~haaval/restcountries/#/
 
-In the project directory, you can run:
+This application uses the restcountries.eu API.
 
-### `npm start`
+In March of 2021, I was enrolled in a full stack web development course, and applying for web developer intern positions. One of the companies I applied to wanted me to complete a test where I was to build an app with React, using the aforementioned API. Alas, back then I was not skilled enough to complete the assignment, even though I found instructional videos by people who had done a challenge using the same API by Frontend Mentor – the requested features were just different enough where I could not grasp how to solve certain issues I faced. I ended up sending the company an e-mail to let them know I was not able to complete the task.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In a matter of a few weeks, though, still during the training period of the course, I was able to build the application with all the requested features, and then some, after having learned to use React a whole lot better.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This was not the end of the story, however. You see, in the course for which the internship was a part of, we learned to use React with class components. During my internship, which I did at a different company, I learned that the developers of React are in the process of overhauling the entire React documentation in favor of functional components. So, after the internship was over, I re-wrote the code in functional components. This is the final result of my hard work and dedication. Even though this app is rather simple in the grand scheme of things in the web developer world, it has definitely been useful, not only in learning web development and especially developing web applications with React, but in learning the flags of countries – a skill that is very useful when playing Geoguessr, among other things!
