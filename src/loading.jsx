@@ -1,7 +1,7 @@
 export const Loading = () => {
     return (<>
         <div className="loading">
-            <div className="load-spinner"></div>
+            <div className="loading-spinner"></div>
         </div>
     </>)
 }

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { Loading } from "./loading"
 
 export const AllCountries = () => {
     const [allData,setAllData] = useState([])
@@ -8,6 +9,7 @@ export const AllCountries = () => {
     const [sortOrder, setSortOrder] = useState('name')
     const [filter, setFilter] = useState('')
     const [subr, setSubr] = useState('')
+    const [hasLoaded, setLoaded] = useState(false)
 
     useEffect(() => {
         axios.get('https://restcountries.eu/rest/v2/all')
@@ -16,6 +18,7 @@ export const AllCountries = () => {
                 setSubRegions(res.data.map(data => {
                     return data.subregion
                 }))
+                setLoaded(true)
             })
             .catch(err => {console.log(err)})
     },[])
@@ -49,7 +52,6 @@ export const AllCountries = () => {
                             <h3>{population}</h3>
                         </div>
                         <div className="learn-more-wrapper">
-
                             <Link to={c.alpha3Code}>
                                 <div className="learn-more">Learn More</div>
                             </Link>
@@ -83,7 +85,10 @@ export const AllCountries = () => {
                 </div>
             </div>
             <div className="all-countries">
+                {hasLoaded ? <>
                 {countryInfos}
+                </> 
+                : <div className="center"><Loading /></div>}
             </div>
         </main>
     </>)

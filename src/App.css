@@ -246,7 +246,7 @@ img {
 
 /* start all country listings */
 
-@media screen and (min-width: 415px) {
+@media screen and (min-width: 564px) {
   .country-card {
     all: initial;
     width: 250px;
@@ -309,6 +309,49 @@ img {
   }
 }
 
-
-
 /* end all country listings */
+
+/* loading spinner */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading {
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 0 0 10px black;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  margin: 20px;
+}
+
+.loading-spinner {
+  height: 125px;
+  width: 20px;
+  position: relative;
+  background-color: whitesmoke;
+  transform: rotate(0);
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* end loading spinner */
