@@ -18,6 +18,7 @@ export const OneCountry = () => {
 
     const getData = () => {
         let requestURL = `https://restcountries.eu/rest/v2/alpha${countryCode}`
+        console.log(countryCode)
         // on clicking a neighboring country flag, the country code does not contain '/' at first so fetching will fail with a 400 error; adding this check prevents the error
         if (requestURL.includes('https://restcountries.eu/rest/v2/alpha/')) {
             axios.get(requestURL)
