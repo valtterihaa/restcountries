@@ -18,13 +18,14 @@ export const OneCountry = () => {
     const linkData = useParams()
 
     const getData = () => {
-        let requestURL = `https://restcountries.eu/rest/v2/alpha/${linkData.alpha3Code}`
+        let requestURL = `https://restcountries.com/v2/alpha/${linkData.alpha3Code}`
         
             axios.get(requestURL)
                 .then(res => {
+                    console.log(res.data)
                     setCountry({
                         name:res.data.name,
-                        flag:res.data.flag,
+                        flag:res.data.flags[0],
                         capital:res.data.capital,
                         languages:res.data.languages,
                         population:res.data.population,
@@ -46,7 +47,7 @@ export const OneCountry = () => {
         return (
             <div key={n}>
                 <Link to={n}>
-                    <img src={`https://restcountries.eu/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
+                    <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
                 </Link>
             </div>
         )

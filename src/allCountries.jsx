@@ -12,11 +12,12 @@ export const AllCountries = () => {
     const [hasLoaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        axios.get('https://restcountries.eu/rest/v2/all')
+        axios.get('https://restcountries.com/v2/all')
             .then(res => {
                 setAllData(res.data)
+                console.log(res.data)
                 setSubRegions(res.data.map(data => {
-                    return data.subregion
+                    return data.region
                 }))
                 setLoaded(true)
             })
@@ -33,7 +34,7 @@ export const AllCountries = () => {
     let filtered = allData.filter(c =>
         c.name.toLowerCase().includes(filter.toLowerCase())
         &&
-        c.subregion.toLowerCase().includes(subr.toLowerCase())
+        c.region.toLowerCase().includes(subr.toLowerCase())
     )
     if (sortOrder === 'name' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
     if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
@@ -44,7 +45,7 @@ export const AllCountries = () => {
             let population = c.population.toLocaleString()
             return (
                 <div key={c.alpha3Code} className="country-card">
-                    <img src={c.flag} alt={`The flag of ${c.name}`} />
+                    <img src={c.flags[0]} alt={`The flag of ${c.name}`} />
                     <div className="country-info-wrapper">
                         <div className="country-info">
                             <h2>{c.name}</h2>

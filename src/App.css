@@ -112,14 +112,13 @@ footer {
   margin: auto;
   max-width: 600px;
   max-height: 600px;
-  /* margin:4em 4vw 2em 4vw; */
   filter: drop-shadow(0 0 10px rgb(131,131,131));
   padding-bottom: 1em;
   border-bottom: 2px solid black;
 }
 
 .one-country-info {
-  background-color: rgb(46, 138, 138);
+  /* background-color: hsla(308, 79%, 15%, 0.247); */
   margin: 1em auto;
   border-radius: 12px;
   padding-top: 0.5em;
@@ -188,6 +187,14 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  /* border-radius: 14px;
+  border: 1px solid black;
+  box-shadow: 0 0 10px black; */
+}
+
+.neighbor-flags>div {
+  filter: drop-shadow(0 0 10px rgb(41, 40, 40));
+  margin: 1em;
 }
 
 /* default styling is for mobile */
