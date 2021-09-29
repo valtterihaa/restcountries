@@ -118,7 +118,8 @@ footer {
 }
 
 .one-country-info {
-  /* background-color: hsla(308, 79%, 15%, 0.247); */
+  background-color: white;
+  border: 1px solid black;
   margin: 1em auto;
   border-radius: 12px;
   padding-top: 0.5em;
@@ -201,15 +202,21 @@ footer {
 
 body {
   background-color: whitesmoke;
-
 }
 
 img {
   width: 30vw;
+  height: auto;
+  /* object-fit: cover; */
   padding: 5px;
-  filter: drop-shadow(0 0 10px rgb(131,131,131))
-
+  filter: drop-shadow(0 0 10px rgb(131,131,131));
+  animation-name: fade-in;
+  animation-duration: 2s;
 }
+
+/* picture {
+  
+} */
 
 .country-card {
   display: flex;
@@ -224,6 +231,13 @@ img {
   font-size: 12px;
   text-overflow: ellipsis;
 }
+
+/* .country-list-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
 
 .country-info-wrapper {
   width: 70vw;
@@ -276,6 +290,7 @@ img {
   img {
     all: initial;
     width: 250px;
+    min-height: 120px;
   }
   
   .country-info {
@@ -336,8 +351,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-
-
   margin: 20px;
 }
 
@@ -362,3 +375,12 @@ img {
 }
 
 /* end loading spinner */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

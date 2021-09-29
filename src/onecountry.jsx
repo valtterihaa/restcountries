@@ -18,14 +18,16 @@ export const OneCountry = () => {
     const linkData = useParams()
 
     const getData = () => {
+
         let requestURL = `https://restcountries.com/v2/alpha/${linkData.alpha3Code}`
+        console.log(requestURL)
         
             axios.get(requestURL)
                 .then(res => {
                     console.log(res.data)
                     setCountry({
                         name:res.data.name,
-                        flag:res.data.flags[0],
+                        flag:res.data.flag,
                         capital:res.data.capital,
                         languages:res.data.languages,
                         population:res.data.population,
@@ -34,6 +36,7 @@ export const OneCountry = () => {
                         topLevelDomain:res.data.topLevelDomain,
                         borderingCountries:res.data.borders
                     })
+                    console.log(country)
                 })
                 .catch(err => console.log(err))    
     }
@@ -48,6 +51,7 @@ export const OneCountry = () => {
             <div key={n}>
                 <Link to={n}>
                     <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
+                    
                 </Link>
             </div>
         )

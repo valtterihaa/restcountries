@@ -45,7 +45,11 @@ export const AllCountries = () => {
             let population = c.population.toLocaleString()
             return (
                 <div key={c.alpha3Code} className="country-card">
-                    <img src={c.flags[0]} alt={`The flag of ${c.name}`} />
+                    {/* <picture className="country-list-image">
+                        <source srcSet={c.flags[1]} media="(min-height: 200px)" /> */}
+                        <img src={c.flag} alt={`The flag of ${c.name}`} />
+                    {/* </picture> */}
+                    
                     <div className="country-info-wrapper">
                         <div className="country-info">
                             <h2>{c.name}</h2>
