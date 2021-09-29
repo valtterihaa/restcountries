@@ -46,16 +46,19 @@ export const OneCountry = () => {
     },[linkData]) // eslint-disable-line react-hooks/exhaustive-deps
     // was getting a warning about a missing dependency getData, comment above prevents the warning as adding getData produces another warning
 
-    const neighbors = country.borderingCountries.map(n => {
-        return (
-            <div key={n}>
-                <Link to={n}>
-                    <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
-                    
-                </Link>
-            </div>
+    let neighbors, listCurrencies
+    if (country.borderingCountries){
+        console.log("neighbors")
+        neighbors = country.borderingCountries.map(n => {
+            return (<div key={n}><Link to={n}>
+                <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
+            </Link></div>)
+        })
+    } else {
+        neighbors = (
+            <div>This country has no border neighbors</div>
         )
-    })
+    }
 
     const listLanguages = country.languages.map(l => {
         return (<div key={l.nativeName}>
@@ -63,11 +66,14 @@ export const OneCountry = () => {
         </div>)
     })
 
-    const listCurrencies = country.currencies.map(c =>{
-        return (<div key={c.name}>
-            {c.name}
-        </div>)
-    })
+    if (country.currencies){
+        listCurrencies = country.currencies.map(c =>{
+            return (<div key={c.name}>{c.name}</div>)
+        })    
+    } else {
+        listCurrencies = (<div>This country has no currency</div> )
+    }
+    
 
     const listCallingCodes = country.callingCodes.map(cc =>{
         return (<div key={cc}>
