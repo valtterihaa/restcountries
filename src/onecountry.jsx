@@ -24,7 +24,6 @@ export const OneCountry = () => {
         
             axios.get(requestURL)
                 .then(res => {
-                    console.log(res.data)
                     setCountry({
                         name:res.data.name,
                         flag:res.data.flag,
@@ -36,7 +35,6 @@ export const OneCountry = () => {
                         topLevelDomain:res.data.topLevelDomain,
                         borderingCountries:res.data.borders
                     })
-                    console.log(country)
                 })
                 .catch(err => console.log(err))    
     }
@@ -122,7 +120,7 @@ export const OneCountry = () => {
                         </div>
                         <div className="one-country-info-divide">
                             <div className="one-country-info-snippet multi-info neighbor-info">
-                                <h3>Bordering countries: </h3>
+                                <h3>Bordering countries:</h3>
                                 <div className="neighbor-flags">{neighbors}</div>
                             </div>
                         </div>

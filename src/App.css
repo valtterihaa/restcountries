@@ -1,6 +1,7 @@
 :root {
   --main-color: rgb(71, 8, 63);
   --action-color: rgb(43, 151, 79);
+  --background-color: hsl(0, 0%, 89%);
 }
 
 * {
@@ -20,12 +21,10 @@ html, #root {
   min-height: -webkit-fill-available;
 }
 
-body {
-  background-color: whitesmoke;
+/* body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
-
-}
+} */
 
 #root {
   display: flex;
@@ -98,8 +97,6 @@ footer {
   display: none;
 }
 
-
-
 /* start single country */
 
 .one-country-page {
@@ -112,15 +109,16 @@ footer {
   margin: auto;
   max-width: 600px;
   max-height: 600px;
-  filter: drop-shadow(0 0 10px rgb(131,131,131));
+  /* filter: drop-shadow(0 0 10px rgb(131,131,131)); */
   padding-bottom: 1em;
   border-bottom: 2px solid black;
 }
 
 .one-country-info {
-  background-color: white;
+  background-color: var(--background-color);
   border: 1px solid black;
-  margin: 1em auto;
+  box-shadow: 0 0 10px var(--main-color);
+  margin: 0.75em auto;
   border-radius: 12px;
   padding-top: 0.5em;
   max-width: 666px;
@@ -184,6 +182,7 @@ footer {
 }
 
 .neighbor-flags {
+  margin-top: 1em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -194,32 +193,31 @@ footer {
 }
 
 .neighbor-flags>div {
-  filter: drop-shadow(0 0 10px rgb(41, 40, 40));
-  margin: 1em;
+  margin: 0.25em;
 }
+
+/* .neighbor-flags>div>a>img {
+  filter: drop-shadow(0 0 10px rgb(41, 40, 40));
+} */
 
 /* default styling is for mobile */
 
 body {
-  background-color: whitesmoke;
+  background-color: var(--background-color);
 }
 
 img {
   width: 30vw;
   height: auto;
-  /* object-fit: cover; */
   padding: 5px;
-  filter: drop-shadow(0 0 10px rgb(131,131,131));
+  /* filter: drop-shadow(0 0 10px rgb(131,131,131)); */
   animation-name: fade-in;
-  animation-duration: 2s;
+  animation-duration: 2.5s;
 }
-
-/* picture {
-  
-} */
 
 .country-card {
   display: flex;
+  /* background-color: white; */
   margin-bottom: 0.5em;
   box-shadow: black 0px 0px 15px 3px;
 }
@@ -264,6 +262,19 @@ img {
   text-align: center;
   margin: auto;
 }
+
+/* .neighbor-flags {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2,50%);
+}
+
+.neighbor-flags>div {
+  background-color: var(--background-color);
+} */
 
 /* start all country listings */
 
@@ -358,7 +369,7 @@ img {
   height: 125px;
   width: 20px;
   position: relative;
-  background-color: whitesmoke;
+  background-color: var(--background-color);
   transform: rotate(0);
   animation-name: spin;
   animation-iteration-count: infinite;
