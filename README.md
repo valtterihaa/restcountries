@@ -2,9 +2,7 @@ Created with create-react-app
 
 Production build is included in the "restcountries" folder.
 
-Live site is viewable @ https://geronimo.okol.org/~haaval/restcountries/#/
-
-This application uses the restcountries.eu API.
+This application uses the restcountries.eu API. (as of late September 2021 changed to restcountries.com)
 
 In March of 2021, I was enrolled in a full stack web development course, and applying for web developer intern positions. One of the companies I applied to wanted me to complete a test where I was to build an app with React, using the aforementioned API. Alas, back then I was not skilled enough to complete the assignment, even though I found instructional videos by people who had done a challenge using the same API by Frontend Mentor – the requested features were just different enough where I could not grasp how to solve certain issues I faced. I ended up sending the company an e-mail to let them know I was not able to complete the task.
 
