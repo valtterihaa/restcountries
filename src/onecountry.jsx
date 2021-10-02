@@ -19,21 +19,23 @@ export const OneCountry = () => {
 
     const getData = () => {
 
-        let requestURL = `https://restcountries.com/v2/alpha/${linkData.alpha3Code}`
+        let requestURL = `https://restcountries.com/v3.1/alpha?codes=${linkData.alpha3Code}`
         console.log(requestURL)
         
             axios.get(requestURL)
                 .then(res => {
+                    const info = res.data[0]
+                    console.log(info.languages)
                     setCountry({
-                        name:res.data.name,
-                        flag:res.data.flag,
-                        capital:res.data.capital,
-                        languages:res.data.languages,
-                        population:res.data.population,
+                        name:info.name.common,
+                        flag:info.flags.svg,
+                        capital:info.capital,
+                        languages:info.languages,
+                        population:info.population,
                         callingCodes:res.data.callingCodes,
-                        currencies:res.data.currencies,
+                        currencies:info.currencies,
                         topLevelDomain:res.data.topLevelDomain,
-                        borderingCountries:res.data.borders
+                        // borderingCountries:info.borders
                     })
                 })
                 .catch(err => console.log(err))    
@@ -44,46 +46,47 @@ export const OneCountry = () => {
     },[linkData]) // eslint-disable-line react-hooks/exhaustive-deps
     // was getting a warning about a missing dependency getData, comment above prevents the warning as adding getData produces another warning
 
+    const languageKeys = Object.keys(country.languages)
+    const currencyKeys = Object.keys(country.currencies)
     let neighbors, listCurrencies
-    if (country.borderingCountries){
-        console.log("neighbors")
-        neighbors = country.borderingCountries.map(n => {
-            return (<div key={n}><Link to={n}>
-                <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
-            </Link></div>)
-        })
-    } else {
-        neighbors = (
-            <div>This country has no border neighbors</div>
-        )
-    }
+    // if (country.borderingCountries){
+    //     console.log("neighbors",country.borderingCountries)
+    //     neighbors = country.borderingCountries.map(n => {
+    //         return (<div key={n}><Link to={n}>
+    //             <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
+    //         </Link></div>)
+    //     })
+    // } else {
+    //     neighbors = (
+    //         <div>This country has no border neighbors</div>
+    //     )
+    // }
+    
+    const listLanguages = languageKeys.map(l => (<li key={l}>{country.languages[l]}</li>))
+    // const newList = country.languages.map(l => {
+    //     console.log("in newList",l)
+    // })
 
-    const listLanguages = country.languages.map(l => {
-        return (<div key={l.nativeName}>
-            {l.name}
-        </div>)
-    })
-
-    if (country.currencies){
-        listCurrencies = country.currencies.map(c =>{
-            return (<div key={c.name}>{c.name}</div>)
-        })    
-    } else {
-        listCurrencies = (<div>This country has no currency</div> )
-    }
+    // if (country.currencies){
+    //     listCurrencies = country.currencies.map(c =>{
+    //         return (<div key={c.name}>{c.name}</div>)
+    //     })    
+    // } else {
+    //     listCurrencies = (<div>This country has no currency</div> )
+    // }
     
 
-    const listCallingCodes = country.callingCodes.map(cc =>{
-        return (<div key={cc}>
-            +{cc}
-        </div>)
-    })
+    // const listCallingCodes = country.callingCodes.map(cc =>{
+    //     return (<div key={cc}>
+    //         +{cc}
+    //     </div>)
+    // })
 
-    const listDomains = country.topLevelDomain.map(tld =>{
-        return (<div key={tld}>
-            {tld}
-        </div>)
-    })
+    // const listDomains = country.topLevelDomain.map(tld =>{
+    //     return (<div key={tld}>
+    //         {tld}
+    //     </div>)
+    // })
         
         return (
             <main>
@@ -107,23 +110,31 @@ export const OneCountry = () => {
                             </div>
                             <div className="one-country-info-snippet multi-info">
                                 <h3>Currencies:</h3>
-                                <div>{listCurrencies}</div>
+                                {/* <div>{listCurrencies}</div> */}
                             </div>
                             <div className="one-country-info-snippet multi-info">
                                 <h3>Calling codes:</h3>
-                                <div>{listCallingCodes}</div>
+                                {/* <div>{listCallingCodes}</div> */}
                             </div>
                             <div className="one-country-info-snippet multi-info">
                                 <h3>Domains:</h3>
-                                <div>{listDomains}</div>
+                                {/* <div>{listDomains}</div> */}
+                            </div>
+                            <div className="one-country-info-snippet multi-info">
+                                <h3>Some info:</h3>
+                                {/* <div>{listDomains}</div> */}
+                            </div>
+                            <div className="one-country-info-snippet multi-info">
+                                <h3>Some info:</h3>
+                                {/* <div>{listDomains}</div> */}
                             </div>
                         </div>
-                        <div className="one-country-info-divide">
+                        {/* <div className="one-country-info-divide">
                             <div className="one-country-info-snippet multi-info neighbor-info">
                                 <h3>Bordering countries:</h3>
                                 <div className="neighbor-flags">{neighbors}</div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </>

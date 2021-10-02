@@ -6,16 +6,15 @@ import { Loading } from "./loading"
 export const AllCountries = () => {
     const [allData,setAllData] = useState([])
     const [subRegions, setSubRegions] = useState([])
-    const [sortOrder, setSortOrder] = useState('name')
+    const [sortOrder, setSortOrder] = useState('')
     const [filter, setFilter] = useState('')
     const [subr, setSubr] = useState('')
     const [hasLoaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        axios.get('https://restcountries.com/v2/all')
+        axios.get('https://restcountries.com/v3.1/all')
             .then(res => {
                 setAllData(res.data)
-                console.log(res.data)
                 setSubRegions(res.data.map(data => {
                     return data.region
                 }))
@@ -32,11 +31,11 @@ export const AllCountries = () => {
     let subregions = subs.filter(Boolean);
     let srfilter = subregions.map(sr => <option key={sr}>{sr}</option>)
     let filtered = allData.filter(c =>
-        c.name.toLowerCase().includes(filter.toLowerCase())
+        c.name.common.toLowerCase().includes(filter.toLowerCase())
         &&
         c.region.toLowerCase().includes(subr.toLowerCase())
     )
-    if (sortOrder === 'name' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
+    if (sortOrder === 'name.common' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
     if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
     if (sortOrder === 'population-higher') filtered.sort((a,b) => b['population']-a['population'])
 
@@ -44,20 +43,17 @@ export const AllCountries = () => {
         {
             let population = c.population.toLocaleString()
             return (
-                <div key={c.alpha3Code} className="country-card">
-                    {/* <picture className="country-list-image">
-                        <source srcSet={c.flags[1]} media="(min-height: 200px)" /> */}
-                        <img src={c.flag} alt={`The flag of ${c.name}`} />
-                    {/* </picture> */}
+                <div key={c.cca3} className="country-card">
+                        <img src={c.flags.svg} alt={`The flag of ${c.name.common}`} />
                     
                     <div className="country-info-wrapper">
                         <div className="country-info">
-                            <h2>{c.name}</h2>
+                            <h2>{c.name.common}</h2>
                             <h3>{c.region}</h3>
                             <h3>{population}</h3>
                         </div>
                         <div className="learn-more-wrapper">
-                            <Link to={c.alpha3Code}>
+                            <Link to={c.cca3}>
                                 <div className="learn-more">Learn More</div>
                             </Link>
                         </div>
