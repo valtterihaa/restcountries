@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Loading } from './loading';
 
 export const OneCountry = () => {
@@ -44,7 +44,7 @@ export const OneCountry = () => {
     },[linkData]) // eslint-disable-line react-hooks/exhaustive-deps
     // was getting a warning about a missing dependency getData, comment above prevents the warning as adding getData produces another warning
 
-    let neighbors, listCurrencies
+    let listCurrencies
     // if (country.borderingCountries){
     //     console.log("neighbors")
     //     neighbors = country.borderingCountries.map(n => {
