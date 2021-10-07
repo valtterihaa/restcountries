@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Loading } from './loading';
 
 export const OneCountry = () => {
@@ -18,10 +18,7 @@ export const OneCountry = () => {
     const linkData = useParams()
 
     const getData = () => {
-
-        let requestURL = `https://restcountries.com/v3.1/alpha?codes=${linkData.alpha3Code}`
-        console.log(requestURL)
-        
+        const requestURL = `https://restcountries.com/v3.1/alpha?codes=${linkData.alpha3Code}`
             axios.get(requestURL)
                 .then(res => {
                     const info = res.data[0]
@@ -32,7 +29,6 @@ export const OneCountry = () => {
                         capital:info.capital,
                         languages:info.languages,
                         population:info.population,
-                        callingCodes:res.data.callingCodes,
                         currencies:info.currencies,
                         topLevelDomain:res.data.topLevelDomain,
                         // borderingCountries:info.borders
@@ -48,7 +44,6 @@ export const OneCountry = () => {
 
     const languageKeys = Object.keys(country.languages)
     const currencyKeys = Object.keys(country.currencies)
-    let neighbors, listCurrencies
     // if (country.borderingCountries){
     //     console.log("neighbors",country.borderingCountries)
     //     neighbors = country.borderingCountries.map(n => {
@@ -62,7 +57,12 @@ export const OneCountry = () => {
     //     )
     // }
     
+    console.log(country.currencies)
     const listLanguages = languageKeys.map(l => (<li key={l}>{country.languages[l]}</li>))
+    const listCurrencies = currencyKeys.map(c => {
+        console.log(c)
+        return (<li key={c}>{country.currencies[c].name}</li>)
+    })
     // const newList = country.languages.map(l => {
     //     console.log("in newList",l)
     // })
@@ -110,15 +110,7 @@ export const OneCountry = () => {
                             </div>
                             <div className="one-country-info-snippet multi-info">
                                 <h3>Currencies:</h3>
-                                {/* <div>{listCurrencies}</div> */}
-                            </div>
-                            <div className="one-country-info-snippet multi-info">
-                                <h3>Calling codes:</h3>
-                                {/* <div>{listCallingCodes}</div> */}
-                            </div>
-                            <div className="one-country-info-snippet multi-info">
-                                <h3>Domains:</h3>
-                                {/* <div>{listDomains}</div> */}
+                                <div>{listCurrencies}</div>
                             </div>
                             <div className="one-country-info-snippet multi-info">
                                 <h3>Some info:</h3>
