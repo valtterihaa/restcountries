@@ -45,18 +45,18 @@ export const OneCountry = () => {
     // was getting a warning about a missing dependency getData, comment above prevents the warning as adding getData produces another warning
 
     let neighbors, listCurrencies
-    if (country.borderingCountries){
-        console.log("neighbors")
-        neighbors = country.borderingCountries.map(n => {
-            return (<div key={n}><Link to={n}>
-                <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
-            </Link></div>)
-        })
-    } else {
-        neighbors = (
-            <div>This country has no border neighbors</div>
-        )
-    }
+    // if (country.borderingCountries){
+    //     console.log("neighbors")
+    //     neighbors = country.borderingCountries.map(n => {
+    //         return (<div key={n}><Link to={n}>
+    //             <img src={`https://restcountries.com/data/${n.toLowerCase()}.svg`} alt={`The flag of ${n}`} />
+    //         </Link></div>)
+    //     })
+    // } else {
+    //     neighbors = (
+    //         <div>This country has no border neighbors</div>
+    //     )
+    // }
 
     const listLanguages = country.languages.map(l => {
         return (<div key={l.nativeName}>
@@ -118,12 +118,12 @@ export const OneCountry = () => {
                                 <div>{listDomains}</div>
                             </div>
                         </div>
-                        <div className="one-country-info-divide">
+                        {/* <div className="one-country-info-divide">
                             <div className="one-country-info-snippet multi-info neighbor-info">
                                 <h3>Bordering countries:</h3>
                                 <div className="neighbor-flags">{neighbors}</div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </>
