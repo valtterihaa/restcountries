@@ -1,6 +1,7 @@
 :root {
-  --main-color: rgb(71, 8, 63);
-  --action-color: rgb(43, 151, 79);
+  --main-color: hsl(308, 80%, 15%);
+  --action-color: hsl(113, 44%, 51%);
+  --hover-color: hsl(113, 44%, 69%);
   --background-color: hsl(0, 0%, 89%);
 }
 
@@ -19,6 +20,7 @@ header a {
 html, #root {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  background-color: var(--background-color);
 }
 
 /* body {
@@ -29,6 +31,8 @@ html, #root {
 #root {
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  max-width: 1500px;
 }
 
 header {
@@ -73,6 +77,8 @@ footer {
 }
 
 .country-filters {
+  max-width: 1500px;
+  min-width: 320px;
   padding: 0.69em;
   display: flex;
   justify-content: space-between;
@@ -90,6 +96,7 @@ footer {
   line-height: 2em;
   border-radius: 8px;
   width: 30vw;
+  max-width: 400px;
   padding-left: 4px;
 }
 
@@ -126,7 +133,6 @@ footer {
 }
 
 .one-country-info-divide {
-  /* margin: 1em auto; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -167,11 +173,6 @@ footer {
   margin: 2em auto;
 }
 
-/* .my-info a {
-  text-decoration: underline;
-  color: blue;
-} */
-
 .my-info p {
   margin-bottom: 1em;
 }
@@ -187,30 +188,16 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* border-radius: 14px;
-  border: 1px solid black;
-  box-shadow: 0 0 10px black; */
 }
 
 .neighbor-flags>div {
   margin: 0.25em;
 }
 
-/* .neighbor-flags>div>a>img {
-  filter: drop-shadow(0 0 10px rgb(41, 40, 40));
-} */
-
-/* default styling is for mobile */
-
-body {
-  background-color: var(--background-color);
-}
-
 img {
   width: 30vw;
   height: auto;
   padding: 5px;
-  /* filter: drop-shadow(0 0 10px rgb(131,131,131)); */
   animation-name: fade-in;
   animation-duration: 2.5s;
 }
@@ -229,13 +216,6 @@ img {
   font-size: 12px;
   text-overflow: ellipsis;
 }
-
-/* .country-list-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
 
 .country-info-wrapper {
   width: 70vw;
@@ -279,8 +259,22 @@ img {
 /* start all country listings */
 
 @media screen and (min-width: 564px) {
+  .all-countries {
+    margin: initial;
+    padding: 3em 0px 3em 0px ;
+    background-image: url('./resources/world-lowres.svg');
+    background-color: #aaa;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: soft-light;
+    /* background-size: 100vh; */
+    min-height: 85vh;
+  }
+
   .country-card {
     all: initial;
+    opacity: 1;
     width: 250px;
     height: fit-content;
     min-height: 250px;
@@ -300,15 +294,15 @@ img {
   
   img {
     all: initial;
-    width: 250px;
+    width: 100%;
     min-height: 120px;
   }
   
   .country-info {
     all: initial;
     padding: 0.5em;
-    /* background-color: khaki; */
-    width: 100%;
+    background-color: var(--background-color);
+    width: calc(100% - 1em);
     margin: auto;
   }
   
@@ -338,7 +332,7 @@ img {
   }
   
   .learn-more:hover {
-    background-color: rgba(36, 173, 82, 0.666);
+    background-color: var(--hover-color);
   }
 }
 
@@ -350,6 +344,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
   height: 100vh;
 }
 
@@ -369,7 +364,7 @@ img {
   height: 125px;
   width: 20px;
   position: relative;
-  background-color: var(--background-color);
+  background-color: white;
   transform: rotate(0);
   animation-name: spin;
   animation-iteration-count: infinite;

@@ -13,7 +13,8 @@ export const OneCountry = () => {
         callingCodes:[],
         currencies:[],
         topLevelDomain:[],
-        borderingCountries:[]
+        borderingCountries:[],
+        isIndependent:''
     })
     const linkData = useParams()
 
@@ -33,7 +34,8 @@ export const OneCountry = () => {
                         callingCodes:res.data.callingCodes,
                         currencies:res.data.currencies,
                         topLevelDomain:res.data.topLevelDomain,
-                        borderingCountries:res.data.borders
+                        borderingCountries:res.data.borders,
+                        isIndependent:res.data.independent
                     })
                 })
                 .catch(err => console.log(err))    
@@ -124,6 +126,7 @@ export const OneCountry = () => {
                                 <div className="neighbor-flags">{neighbors}</div>
                             </div>
                         </div> */}
+                        {/* <div>{country.isIndependent ? <>Independent</>:<>Not independent</>}</div> */}
                     </div>
                 </section>
             </>
