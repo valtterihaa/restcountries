@@ -200,7 +200,6 @@ footer {
 
 img {
   width: 30vw;
-  height: fit-content;
   padding: 5px;
   animation-name: fade-in;
   animation-duration: 2.5s;
