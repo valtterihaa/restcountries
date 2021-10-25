@@ -6,7 +6,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './header'
 import Footer from './footer';
 import Info from './info';
-import { OneCountry } from './oneCountry';
+import { OneCountry } from './onecountry';
 import { AllCountries } from './allCountries';
 
 ReactDOM.render(

@@ -44,9 +44,12 @@ export const AllCountries = () => {
             let population = c.population.toLocaleString()
             return (
                 <div key={c.alpha3Code} className="country-card">
+                    <picture>
+                        <img src={c.flag} alt={`The flag of ${c.name}`} />
+                    </picture>
                     {/* <picture className="country-list-image">
                         <source srcSet={c.flags[1]} media="(min-height: 200px)" /> */}
-                        <img src={c.flag} alt={`The flag of ${c.name}`} />
+                        
                     {/* </picture> */}
                     
                     <div className="country-info-wrapper">
@@ -88,14 +91,16 @@ export const AllCountries = () => {
                     <input id="filter" className="country-filter" value={filter} onChange={ev => textChanged(ev)} placeholder="filter by name" />
                 </div>
             </div>
-            <div className="all-countries">
-                {hasLoaded ? <>
-                {countryInfos}
-                </> 
-                : <div className="center">
-                    {/* <Loading /> */}
-                </div>}
-            </div>
+            <section className="main-page-listings">
+                <div className="all-countries">
+                    {hasLoaded ? <>
+                    {countryInfos}
+                    </> 
+                    : <div className="center">
+                        {/* <Loading /> */}
+                    </div>}
+                </div>
+            </section>
         </main>
     </>)
 }

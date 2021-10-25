@@ -20,19 +20,21 @@ header a {
 html, #root {
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-color: rgb(199, 199, 199);
+
 }
 
-/* body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+/* main {
+  display: flex;
+  justify-content: center;
 } */
 
 #root {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  max-width: 1500px;
+  /* max-width: 1500px; */
 }
 
 header {
@@ -77,7 +79,7 @@ footer {
 }
 
 .country-filters {
-  max-width: 1500px;
+  /* max-width: 1500px; */
   min-width: 320px;
   padding: 0.69em;
   display: flex;
@@ -122,7 +124,9 @@ footer {
 }
 
 .one-country-info {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-color: rgb(199, 199, 199);
+
   border: 1px solid black;
   box-shadow: 0 0 10px var(--main-color);
   margin: 0.75em auto;
@@ -196,10 +200,15 @@ footer {
 
 img {
   width: 30vw;
-  height: auto;
+  height: fit-content;
   padding: 5px;
   animation-name: fade-in;
   animation-duration: 2.5s;
+}
+
+picture {
+  display: flex;
+  align-items: center;
 }
 
 .country-card {
@@ -260,16 +269,23 @@ img {
 
 @media screen and (min-width: 564px) {
   .all-countries {
+    text-align: center;
     margin: initial;
     padding: 3em 0px 3em 0px ;
     background-image: url('./resources/world-lowres.svg');
-    background-color: #aaa;
+    background-color: rgb(199, 199, 199);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-blend-mode: soft-light;
+    max-width: 1500px;
     /* background-size: 100vh; */
     min-height: 85vh;
+  }
+
+  main .main-page-listings {
+    display: flex;
+    justify-content: center;
   }
 
   .country-card {
