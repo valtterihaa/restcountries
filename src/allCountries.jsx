@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { CountryCard } from "./countryCard"
+import { Loading } from "./loading"
 
 export const AllCountries = () => {
     const [allData,setAllData] = useState([])
@@ -9,6 +10,14 @@ export const AllCountries = () => {
     const [filter, setFilter] = useState('')
     const [subr, setSubr] = useState('')
     const [hasLoaded, setLoaded] = useState(false)
+    
+    // idea is to add a keydown event listener that changes the focus to the filter options; should make site navigable with just the keyboard
+    // const handleKeyPress = ev => {
+    //     if (ev.key === "s") {
+    //         // set focus to the first sort option
+    //         console.log("this is the key that should",setFocus())
+    //     }
+    // }
 
     useEffect(() => {
         axios.get('https://restcountries.com/v2/all')
@@ -21,15 +30,24 @@ export const AllCountries = () => {
                 setLoaded(true)
             })
             .catch(err => {console.log(err)})
+        // add keydown event so we can listen to "s" key
+        // document.addEventListener('keydown', handleKeyPress)
+        // return () => document.removeEventListener('keydown', handleKeyPress)
     },[])
 
     const subRegionChanged = ev => setSubr(ev.target.value)
     const sortOrderChanged = ev => setSortOrder(ev.target.value)
     const textChanged = ev => setFilter(ev.target.value)
+    // const setFocus = () => {
+    //     console.log(window)
+    //     return "i am setFocus"
+    // }
+    
+
 
     let subregions = Array.from(new Set(subRegions))
     subregions.filter(Boolean);
-    let srfilter = subregions.map(sr => <option key={sr}>{sr}</option>)
+    const srfilter = subregions.map(sr => <option key={sr}>{sr}</option>)
     let filtered = allData.filter(c =>
         c.name.toLowerCase().includes(filter.toLowerCase())
         &&
@@ -39,35 +57,6 @@ export const AllCountries = () => {
     if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
     if (sortOrder === 'population-higher') filtered.sort((a,b) => b['population']-a['population'])
 
-    let countryInfos = filtered.map(c => 
-        {
-            let population = c.population.toLocaleString()
-            return (
-                <div key={c.alpha3Code} className="country-card">
-                    <picture>
-                        <img src={c.flag} alt={`The flag of ${c.name}`} />
-                    </picture>
-                    {/* <picture className="country-list-image">
-                        <source srcSet={c.flags[1]} media="(min-height: 200px)" /> */}
-                        
-                    {/* </picture> */}
-                    
-                    <div className="country-info-wrapper">
-                        <div className="country-info">
-                            <h2>{c.name}</h2>
-                            <h3>{c.region}</h3>
-                            <h3>{population}</h3>
-                        </div>
-                        <div className="learn-more-wrapper">
-                            <Link to={c.alpha3Code}>
-                                <div className="learn-more">Learn More</div>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )
-        }
-    )
 
     return (<>
         <main>
@@ -94,10 +83,10 @@ export const AllCountries = () => {
             <section className="main-page-listings">
                 <div className="all-countries">
                     {hasLoaded ? <>
-                    {countryInfos}
+                    <CountryCard props={filtered} />
                     </> 
                     : <div className="center">
-                        {/* <Loading /> */}
+                        <Loading />
                     </div>}
                 </div>
             </section>

@@ -5,7 +5,7 @@ Production build is included in the "restcountries" folder.
 This application uses the restcountries.eu API. (as of late September 2021 changed to restcountries.com)
 
 *NOTICE*
-Restcountries has updated their API to v3.1. The site you are currently on uses the v2 API endpoints. I plan on updating the app in the near future. Not much will change; some country names seem to be updated on the new API version.
+Restcountries has updated their API to v3.1. The site you are currently on uses the v2 API endpoints. I plan on updating the app in the near future. Not much will change; some country names seem to be updated on the new API version, among other things. I will continue to update and improve this version also.
 
 In March of 2021, I was enrolled in a full stack web development course, and applying for web developer intern positions. One of the companies I applied to wanted me to complete a test where I was to build an app with React, using the aforementioned API. Alas, back then I was not skilled enough to complete the assignment, even though I found instructional videos by people who had done a challenge using the same API by Frontend Mentor – the requested features were just different enough where I could not grasp how to solve certain issues I faced. I ended up sending the company an e-mail to let them know I was not able to complete the task.
 
