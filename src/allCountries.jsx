@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { Loading } from "./loading"
 
 export const AllCountries = () => {
     const [allData,setAllData] = useState([])
@@ -16,7 +15,7 @@ export const AllCountries = () => {
             .then(res => {
                 setAllData(res.data)
                 setSubRegions(res.data.map(data => {
-                    return data.region
+                    return data.subregion
                 }))
                 setLoaded(true)
             })
@@ -27,13 +26,13 @@ export const AllCountries = () => {
     const sortOrderChanged = ev => setSortOrder(ev.target.value)
     const textChanged = ev => setFilter(ev.target.value)
 
-    let subs = Array.from(new Set(subRegions))
-    let subregions = subs.filter(Boolean);
+    let subregions = Array.from(new Set(subRegions))
+    subregions.filter(Boolean);
     let srfilter = subregions.map(sr => <option key={sr}>{sr}</option>)
     let filtered = allData.filter(c =>
         c.name.common.toLowerCase().includes(filter.toLowerCase())
         &&
-        c.region.toLowerCase().includes(subr.toLowerCase())
+        c.subregion.toLowerCase().includes(subr.toLowerCase())
     )
     if (sortOrder === 'name.common' || sortOrder === 'region') filtered.sort((a,b) => a[sortOrder].localeCompare(b[sortOrder]));
     if (sortOrder === 'population') filtered.sort((a,b) => a[sortOrder]-b[sortOrder])
@@ -85,12 +84,16 @@ export const AllCountries = () => {
                     <input id="filter" className="country-filter" value={filter} onChange={ev => textChanged(ev)} placeholder="filter by name" />
                 </div>
             </div>
-            <div className="all-countries">
-                {hasLoaded ? <>
-                {countryInfos}
-                </> 
-                : <div className="center"><Loading /></div>}
-            </div>
+            <section className="main-page-listings">
+                <div className="all-countries">
+                    {hasLoaded ? <>
+                    {countryInfos}
+                    </> 
+                    : <div className="center">
+                        {/* <Loading /> */}
+                    </div>}
+                </div>
+            </section>
         </main>
     </>)
 }
