@@ -125,8 +125,7 @@ footer {
 
 .one-country-info {
   /* background-color: var(--background-color); */
-  background-color: rgb(199, 199, 199);
-
+  background-color: white;
   border: 1px solid black;
   box-shadow: 0 0 10px var(--main-color);
   margin: 0.75em auto;
@@ -203,6 +202,48 @@ img {
   padding: 5px;
   animation-name: fade-in;
   animation-duration: 2.5s;
+}
+
+.statii {
+  display: flex;
+  flex-direction: row;
+  margin: .1em;
+  gap: .3em;
+}
+
+.status-item {
+  padding: .2em;
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+.status-item .tooltip {
+  visibility: hidden;
+  min-width: 125px;
+  background-color: sandybrown;
+  position: absolute;
+  border: 1px solid black;
+  z-index: 2;
+}
+
+.status-item:hover {
+  cursor: default;
+}
+
+.status-item:hover .tooltip {
+  visibility: visible;
+
+}
+
+
+
+.un-member {
+  display: block;
+  background-color: rgb(182, 190, 214);
+  border: 1px solid blue;
+  border-radius: 5px;
+  /* padding: .2em; */
 }
 
 picture {
@@ -311,6 +352,12 @@ picture {
     all: initial;
     width: 100%;
     min-height: 120px;
+  }
+
+  .un-member img {
+    min-height: unset;
+    height: 50px;
+    width: 50px;
   }
   
   .country-info {
